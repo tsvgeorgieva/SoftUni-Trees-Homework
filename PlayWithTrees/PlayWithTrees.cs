@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace PlayWithTrees
 {
-    class PlayWithTrees
+    public class PlayWithTrees
     {
         static Dictionary<int, Tree<int>> nodeByValue = new Dictionary<int, Tree<int>>();
 
@@ -17,10 +15,13 @@ namespace PlayWithTrees
             for (int i = 1; i < nodesCount; i++)
             {
                 string[] edge = ReadLine().Split(' ');
+
                 int parentValue = int.Parse(edge[0]);
                 Tree<int> parentNode = GetTreeNodeByValue(parentValue);
+
                 int childValue = int.Parse(edge[1]);
                 Tree<int> childNode = GetTreeNodeByValue(childValue);
+
                 parentNode.Children.Add(childNode);
                 childNode.Parent = parentNode;
             }
@@ -89,15 +90,6 @@ namespace PlayWithTrees
             return middleNodes;
         }
 
-        static int FindPathSum(Tree<int> node, int pathSum)
-        {
-            int sum = 0;
-
-
-
-            return sum;
-        }
-
         static IList<Tree<int>> FindLongestPath(Tree<int> treeNode)
         {
             IList<Tree<int>> longestPath = new List<Tree<int>>();
@@ -121,6 +113,7 @@ namespace PlayWithTrees
             {
                 sum += FindTreeSum(child);
             }
+
             return sum;
         }
 
